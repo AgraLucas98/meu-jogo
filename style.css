@@ -1,0 +1,105 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Remove barras de rolagem */
+    background-color: #1a1a2e; /* Cor do céu do jogo */
+}
+.container {
+    position: relative;
+    width: 100vw; /* 100% da largura da tela */
+    height: 100vh; /* 100% da altura da tela */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+}
+#game {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+#score {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    z-index: 10;
+}
+canvas {
+    width: 100%;
+    height: auto;
+    max-width: 600px; /* Limita o tamanho em telas muito grandes */
+}
+#best-score {
+    position: absolute;
+    top: 55px; /* Logo abaixo do score principal */
+    right: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.7);
+    z-index: 10;
+}
+#introduction {
+    position: absolute;
+    width: 100%;
+    top: 100px;
+    text-align: center;
+    color: white;
+}
+@keyframes popIn {
+    0% { transform: translate(-50%, -50%) scale(0); }
+    80% { transform: translate(-50%, -50%) scale(1.1); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+#restart {
+    position: absolute;
+    /* --- AJUSTE DE POSIÇÃO: Movido de 50% para 75% --- */
+    top: 75%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    /* --- AJUSTE DE TAMANHO E COR --- */
+    padding: 12px 30px; /* Reduzi o padding para um botão menor */
+    font-size: 18px; /* Reduzi um pouco a fonte */
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    color: white; /* Texto branco */
+    /* --- NOVA COR DA PALETA: Azul Marinho Escuro --- */
+    background-color: #2c3e50; 
+    border: none;
+    border-radius: 6px; /* Borda um pouco menos arredondada */
+    
+    /* Efeito de Sombra (Profundidade) */
+    box-shadow: 0 5px #1a252f; /* Sombra mais escura */
+    cursor: pointer;
+    display: none; /* Começa escondido */
+    transition: all 0.2s ease;
+    z-index: 20; /* Garante que fique acima de tudo */
+}
+
+/* Efeito ao passar o mouse (Hover) */
+#restart:hover {
+    background-color: #3e5872; /* Um azul um pouco mais claro */
+    margin-top: -2px; /* Sobe um pouquinho */
+    box-shadow: 0 7px #1a252f;
+}
+
+/* Efeito ao clicar (Active) */
+#restart:active {
+    margin-top: 3px; /* "Afunda" o botão */
+    box-shadow: 0 2px #1a252f;
+}
+
+/* --- CORREÇÃO DO POSICIONAMENTO DO "DOUBLE SCORE" --- */
+#perfect {
+    position: absolute;
+    width: 100%;
+    top: 120px;
+    text-align: center;
+    color: #f1c40f;
+    font-weight: bold;
+    display: none;
+    z-index: 10;
+}
